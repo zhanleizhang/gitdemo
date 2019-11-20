@@ -4,3 +4,18 @@
 4、git pull 更新分支
 5、git pull origin master  拉取远程origin的master分支
 6、git remote add origin https://github.com/zhanleizhang/gitdemo.git  添加到远程仓库连接
+
+示例：
+git branch dev1    本地创建一个新分支
+创建一个文件git_001.txt
+把这个文件添加到远程分支dev上
+git push origin dev1:dev
+
+1deMacBook-Pro-6:gitdemo a1$ git push origin dev1:dev
+Counting objects: 3, done.
+Delta compression using up to 8 threads.
+Compressing objects: 100% (3/3), done.
+Writing objects: 100% (3/3), 574 bytes | 574.00 KiB/s, done.
+Total 3 (delta 0), reused 0 (delta 0)
+To https://github.com/zhanleizhang/gitdemo.git
+   aa05b2b..2fbe83f  dev1 -> dev
