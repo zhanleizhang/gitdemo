@@ -1,0 +1,6 @@
+1、拉取代码git clone https://github.com/zhanleizhang/gitdemo.git
+2、git branch   查看分支
+3、git checkout 分支名   切换到该分支
+4、git pull 更新分支
+5、git pull origin master  拉取远程origin的master分支
+6、git remote add origin https://github.com/zhanleizhang/gitdemo.git  添加到远程仓库连接
