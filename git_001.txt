@@ -26,4 +26,5 @@ git init 项目名   或者指定项目git init
 9、只会添加修改和新增，不会添加删除的文件 git add . 
 10、添加更新的文件 git add -u
 11、把所有的都添加上去 git add -A
-12、执行git add，使用git status查看此时的状态  
+12、执行git add，使用git status查看此时的状态 
+13、日志记录显示：git config --global user.name "中文名"; git config --global user.email "邮箱" 
