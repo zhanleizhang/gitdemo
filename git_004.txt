@@ -1,3 +1,6 @@
 1、回退 git resset
 2、回退当前add后的文件：git reset HEAD git_004.txt
 3、查看日志不现实那么多信息：git log --pretty=oneline 
+4、回退两种方式 git reset --hard HEAD^ , 两个HEAD^^ 版本多是HEAD~100
+第二种：git reset --hard 版本号
+5、git revert
