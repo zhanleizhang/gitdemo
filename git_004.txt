@@ -3,4 +3,9 @@
 3、查看日志不现实那么多信息：git log --pretty=oneline 
 4、回退两种方式 git reset --hard HEAD^ , 两个HEAD^^ 版本多是HEAD~100
 第二种：git reset --hard 版本号
-5、git revert
+5、git revert是一种反做命令，比如你commit提交了一个文件，如果用上的话就相当于是撤回了这个文件，但是他有一个不同的就是可以跨过已提交的版本:git revert
+6、git revert是用一次新的commit来回滚之前的commit，git reset是直接删除指定的commit。
+git reset是把HEAD向后移动了一下，而git revert是HEAD继续前进，只是新的commit的内容和要revert的内容正好相反，能够抵消要被revert的内容。
+7、git reset --soft命令会让版本回到某次commit后的状态，但并不改动工作目录中的文件，git reset --hard命令将版本库回退到指定版本后不仅仅是将本地版本库的头指针全部重置到指定版本，也会重置暂存区，并且会将工作区代码也回退到这个版本。
+
+https://www.jianshu.com/p/d3d84966e8b7
