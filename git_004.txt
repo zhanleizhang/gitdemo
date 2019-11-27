@@ -7,5 +7,10 @@
 6、git revert是用一次新的commit来回滚之前的commit，git reset是直接删除指定的commit。
 git reset是把HEAD向后移动了一下，而git revert是HEAD继续前进，只是新的commit的内容和要revert的内容正好相反，能够抵消要被revert的内容。
 7、git reset --soft命令会让版本回到某次commit后的状态，但并不改动工作目录中的文件，git reset --hard命令将版本库回退到指定版本后不仅仅是将本地版本库的头指针全部重置到指定版本，也会重置暂存区，并且会将工作区代码也回退到这个版本。
-
+8、没有git add .   或者git add file的文件
+回退：git checkout . 或者git checkout file 进行回退
+9、如果进行了git add 的操作
+回退：git reset --hard   或者去除aad git reset HEAD   然后在git checkout .
+10、git fetch是将远程主机的最新内容拉到本地，用户在检查了以后决定是否合并到工作本机分支中。
+而git pull 则是将远程主机的最新内容拉下来后直接合并，即：git pull = git fetch + git merge，这样可能会产生冲突，需要手动解决。
 https://www.jianshu.com/p/d3d84966e8b7
