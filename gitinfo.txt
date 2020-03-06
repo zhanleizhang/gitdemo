@@ -1,0 +1,72 @@
+1、拉取代码git clone https://github.com/zhanleizhang/gitdemo.git
+2、git branch   查看分支
+3、git checkout 分支名   切换到该分支
+4、git pull 更新分支
+5、git pull origin master  拉取远程origin的master分支
+6、git remote add origin https://github.com/zhanleizhang/gitdemo.git  添加到远程仓库连接
+
+示例：
+git branch dev1    本地创建一个新分支
+创建一个文件git_001.txt
+把这个文件添加到远程分支dev上
+git push origin dev1:dev
+
+1deMacBook-Pro-6:gitdemo a1$ git push origin dev1:dev
+Counting objects: 3, done.
+Delta compression using up to 8 threads.
+Compressing objects: 100% (3/3), done.
+Writing objects: 100% (3/3), 574 bytes | 574.00 KiB/s, done.
+Total 3 (delta 0), reused 0 (delta 0)
+To https://github.com/zhanleizhang/gitdemo.git
+   aa05b2b..2fbe83f  dev1 -> dev
+
+7、拉去远程指定分支到本地 git checkout -b dev origin/dev
+8、初始化一个新本地仓库，它在工作目录下生成一个名为.git的隐藏文件夹 git init
+git init 项目名   或者指定项目git init
+9、只会添加修改和新增，不会添加删除的文件 git add . 
+10、添加更新的文件 git add -u
+11、把所有的都添加上去 git add -A
+12、执行git add，使用git status查看此时的状态 
+
+1、将远程指定分支 拉取到 本地指定分支上：git pull origin <远程分支名>:<本地分支名>
+2、将远程指定分支 拉取到 本地当前分支上：git pull origin <远程分支名>
+3、将与本地当前分支同名的远程分支 拉取到 本地当前分支上(需先关联远程分支)：git pull origin
+4、常用的命令就是 git pull origin <远程仓库名>，操作简单，安全可控
+5、将本地当前分支 推送到 远程指定分支上（注意：pull是远程在前本地在后，push相反）
+git push origin <本地分支名>:<远程分支名>
+6、将本地当前分支 推送到 与本地当前分支同名的远程分支上：git push origin <本地分支名>
+7、将本地当前分支 推送到 与本地当前分支同名的远程分支上(需先关联远程分支)：git push origin
+8、推荐使用第2种方式，git push origin <远程同名分支名>
+9、将本地分支与远程同名分支相关联：git push --set-upstream origin <本地分支名>
+
+
+1、将所有未提交的修改（工作区和暂存区）保存至堆栈中:git stash
+2、作用等同于git stash：git stash save
+git stash效果：Saved working directory and index state WIP on dev1: 22e0e00 Merge branch 'master' into dev1
+git stash save "test"效果：stash@{0}: On master: test
+3、查看当前stash中的内容：git stash list
+效果：stash@{0}: WIP on dev1: 22e0e00 Merge branch 'master' into dev1
+4、将当前stash中的内容弹出，并应用到当前分支对应的工作目录上，该命令将堆栈中最近保存的内容删除：git stash pop
+5、将当前stash中的内容弹出,但不会删除堆栈中的信息：git stash apply 
+示例：git stash apply + stash名字（如stash@{1}
+6、查看堆栈中最新保存的stash和当前目录的差异：git stash show
+7、清除堆栈中的所有内容：git stash clear
+
+
+1、回退 git resset
+2、回退当前add后的文件：git reset HEAD git_004.txt
+3、查看日志不现实那么多信息：git log --pretty=oneline 
+4、回退两种方式 git reset --hard HEAD^ , 两个HEAD^^ 版本多是HEAD~100
+第二种：git reset --hard 版本号
+5、git revert是一种反做命令，比如你commit提交了一个文件，如果用上的话就相当于是撤回了这个文件，但是他有一个不同的就是可以跨过已提交的版本:git revert
+6、git revert是用一次新的commit来回滚之前的commit，git reset是直接删除指定的commit。
+git reset是把HEAD向后移动了一下，而git revert是HEAD继续前进，只是新的commit的内容和要revert的内容正好相反，能够抵消要被revert的内容。
+7、git reset --soft命令会让版本回到某次commit后的状态，但并不改动工作目录中的文件，git reset --hard命令将版本库回退到指定版本后不仅仅是将本地版本库的头指针全部重置到指定版本，也会重置暂存区，并且会将工作区代码也回退到这个版本。
+8、没有git add .   或者git add file的文件
+回退：git checkout . 或者git checkout file 进行回退
+9、如果进行了git add 的操作
+回退：git reset --hard   或者去除aad git reset HEAD   然后在git checkout .
+10、git fetch是将远程主机的最新内容拉到本地，用户在检查了以后决定是否合并到工作本机分支中。
+而git pull 则是将远程主机的最新内容拉下来后直接合并，即：git pull = git fetch + git merge，这样可能会产生冲突，需要手动解决。
+https://www.jianshu.com/p/d3d84966e8b7
+13、日志记录显示：git config --global user.name "中文名"; git config --global user.email "邮箱" 
